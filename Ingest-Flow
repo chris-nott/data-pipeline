@@ -1,0 +1,195 @@
+[
+    {
+        "id": "660c21fe.6b1e5",
+        "type": "mqtt in",
+        "z": "67dafc4c.814bfc",
+        "name": "Get ships",
+        "topic": "some/test/feed",
+        "qos": "2",
+        "broker": "ef4bfe47.3c85b",
+        "x": 103.5,
+        "y": 107.25,
+        "wires": [
+            [
+                "68da8da1.912d84"
+            ]
+        ]
+    },
+    {
+        "id": "75df41c4.38e6c8",
+        "type": "debug",
+        "z": "67dafc4c.814bfc",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 570,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "68da8da1.912d84",
+        "type": "json",
+        "z": "67dafc4c.814bfc",
+        "name": "",
+        "pretty": false,
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "dfc53d64.780dd"
+            ]
+        ]
+    },
+    {
+        "id": "dfc53d64.780dd",
+        "type": "change",
+        "z": "67dafc4c.814bfc",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.lat",
+                "pt": "msg",
+                "to": "lat",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.lon",
+                "pt": "msg",
+                "to": "lon",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.name",
+                "pt": "msg",
+                "to": "name",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "type",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.typeno",
+                "pt": "msg",
+                "to": "typeno",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.icon",
+                "pt": "msg",
+                "to": "icon",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.iconColor",
+                "pt": "msg",
+                "to": "iconColor",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.bearing",
+                "pt": "msg",
+                "to": "bearing",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "speed",
+                "pt": "msg",
+                "to": "payload.speed",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.destination",
+                "pt": "msg",
+                "to": "destination",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.callsign",
+                "pt": "msg",
+                "to": "callsign",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.layer",
+                "pt": "msg",
+                "to": "layer",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 200,
+        "wires": [
+            [
+                "dc163098.2d128"
+            ]
+        ]
+    },
+    {
+        "id": "dc163098.2d128",
+        "type": "json",
+        "z": "67dafc4c.814bfc",
+        "name": "",
+        "pretty": false,
+        "x": 430,
+        "y": 200,
+        "wires": [
+            [
+                "75df41c4.38e6c8",
+                "cdf6b4fb.a6c81"
+            ]
+        ]
+    },
+    {
+        "id": "cdf6b4fb.a6c81",
+        "type": "cloudant out",
+        "z": "67dafc4c.814bfc",
+        "name": "Store ships",
+        "cloudant": "",
+        "database": "ships",
+        "service": "data-pipeline-cn-cloudantNoSQLDB",
+        "payonly": false,
+        "operation": "insert",
+        "x": 590,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ef4bfe47.3c85b",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "<Enter address of broker",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    }
+]

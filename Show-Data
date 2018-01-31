@@ -1,0 +1,49 @@
+[
+    {
+        "id": "22f6c5d6.e19102",
+        "type": "http in",
+        "z": "67dafc4c.814bfc",
+        "name": "",
+        "url": "/getShips",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 340,
+        "wires": [
+            [
+                "c99f1455.78b15"
+            ]
+        ]
+    },
+    {
+        "id": "bb25adab.304f",
+        "type": "http response",
+        "z": "67dafc4c.814bfc",
+        "name": "Return ships",
+        "statusCode": "",
+        "headers": {},
+        "x": 450,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c99f1455.78b15",
+        "type": "cloudant in",
+        "z": "67dafc4c.814bfc",
+        "name": "Query ships",
+        "cloudant": "",
+        "database": "ships",
+        "service": "data-pipeline-cn-cloudantNoSQLDB",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 290,
+        "y": 340,
+        "wires": [
+            [
+                "bb25adab.304f"
+            ]
+        ]
+    }
+]
