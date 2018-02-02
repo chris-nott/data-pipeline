@@ -1,7 +1,7 @@
 # Building an end-to-end data pipeline
 This prototype project shows how to build an end-to-end data pipeline to enable smarter decisions.  It is built in the IBM Cloud using an Internet of Things scenario.
 
-A description of the demonstration can be found at:
+A description of the demonstration can be found at: http://tech-insights.blog/2018/02/02/building-an-end-to-end-data-pipeline/
 
 The data pipeline
 ![Data pipeline](data-pipeline.png)
